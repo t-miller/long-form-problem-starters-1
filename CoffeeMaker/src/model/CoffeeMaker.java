@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.*;
+
 /**
  * A coffee maker used to train baristas.
  *
@@ -23,7 +25,8 @@ public class CoffeeMaker {
     }
 
     // EFFECTS: return true if there are coffee cups remaining
-    public boolean areCupsRemaining() {
+    //          otherwise, throws NoCupsRemainingException
+    public boolean areCupsRemaining() throws NoCupsRemainingException {
         // TODO: complete the implementation of this method
         return false;
     }
@@ -34,16 +37,18 @@ public class CoffeeMaker {
         // TODO: complete the implementation of this method
     }
 
-    //REQUIRES: beans between 2.40 and 2.60 cups, water > 14.75 cups
-    //EFFECTS: sets cups remaining to full (20 cups) and time since last brew to 0
-    public void brew(double beans, double water){
+    //EFFECTS: sets cups remaining to full (20 cups) and time since last brew to 0,
+    //          throws TooManyBeansException if beans >2.6 cups, throws NotEnoughBeansException if beans<2.4 cups
+    //          throws WaterException if cups <= 14.75 cups
+    public void brew(double beans, double water) throws TooManyBeansException, NotEnoughBeansException, WaterException {
         // TODO: complete the implementation of this method
     }
 
-    ///REQUIRES: cups remaining > 0, time since last brew < 60
     //MODIFIES: this
     //EFFECTS: subtracts one cup from cups remaining
-    public void pourCoffee() {
+    //          throws NoCupsRemainingException is cups <=0,
+    //          throws StaleCoffeeException if time since last brew >=60
+    public void pourCoffee() throws NoCupsRemainingException, StaleCoffeeException{
         // TODO: complete the implementation of this method
     }
 
