@@ -14,7 +14,11 @@ public class CoffeeMakerTest {
 
     @Before
     public void setUp(){
-        CoffeeMaker cm = new CoffeeMaker();
+        cm = new CoffeeMaker();
+    }
+    @Test
+    public void testConstructor(){
+        assertEquals(cm.getTimeSinceLastBrew(), cm.getCupsRemaining(), 0);
     }
     @Test (expected = NotEnoughBeansException.class)
     public void TestBrewNotEnoughBeans() throws NotEnoughBeansException, TooManyBeansException, WaterException {
@@ -59,6 +63,7 @@ public class CoffeeMakerTest {
     public void TestPourCoffeeFailBothParamsWrongNoCupsFirst() throws NoCupsRemainingException, StaleCoffeeException, NotEnoughBeansException, TooManyBeansException, WaterException {
         brewCoffee();
         pour20COffees();
+        cm.pourCoffee();
         cm.setTimeSinceLastBrew(60);
         cm.pourCoffee();
     }
@@ -76,7 +81,7 @@ public class CoffeeMakerTest {
     }
 
     public void brewCoffee() throws NotEnoughBeansException, TooManyBeansException, WaterException {
-        cm.brew(2.7, 17);
+        cm.brew(2.5, 17);
     }
 
     public void pour20COffees() throws NoCupsRemainingException, StaleCoffeeException {

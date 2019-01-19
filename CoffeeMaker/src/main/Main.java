@@ -12,28 +12,20 @@ public class Main {
         // brew coffee
         try {
             cm.brew(2.5, 15);
-        } catch (TooManyBeansException e) {
-            e.printStackTrace();
-        } catch (NotEnoughBeansException e) {
-            e.printStackTrace();
-        } catch (WaterException e) {
+        } catch (TooManyBeansException | NotEnoughBeansException | WaterException e) {
             e.printStackTrace();
         }
 
         // pour a couple cups
         try {
             cm.pourCoffee();
-        } catch (NoCupsRemainingException e) {
-            e.printStackTrace();
-        } catch (StaleCoffeeException e) {
+        } catch (NoCupsRemainingException | StaleCoffeeException e) {
             e.printStackTrace();
         }
 
         try {
             cm.pourCoffee();
-        } catch (NoCupsRemainingException e) {
-            e.printStackTrace();
-        } catch (StaleCoffeeException e) {
+        } catch (NoCupsRemainingException | StaleCoffeeException e) {
             e.printStackTrace();
         }
 
@@ -45,39 +37,27 @@ public class Main {
         // brew coffee
         try {
             cm.brew(1, 2);
-        } catch (TooManyBeansException e) {
-            e.printStackTrace();
-        } catch (NotEnoughBeansException e) {
-            e.printStackTrace();
-        } catch (WaterException e) {
+        } catch (TooManyBeansException | NotEnoughBeansException | WaterException e) {
             e.printStackTrace();
         }
 
         //add correct amounts
         try {
             cm.brew(2.5, 15);
-        } catch (TooManyBeansException e) {
-            e.printStackTrace();
-        } catch (NotEnoughBeansException e) {
-            e.printStackTrace();
-        } catch (WaterException e) {
+        } catch (TooManyBeansException | NotEnoughBeansException | WaterException e) {
             e.printStackTrace();
         }
 
         // pour cups
         try {
             cm.pourCoffee();
-        } catch (NoCupsRemainingException e) {
-            e.printStackTrace();
-        } catch (StaleCoffeeException e) {
+        } catch (NoCupsRemainingException | StaleCoffeeException e) {
             e.printStackTrace();
         }
 
         try {
             cm.pourCoffee();
-        } catch (NoCupsRemainingException e) {
-            e.printStackTrace();
-        } catch (StaleCoffeeException e) {
+        } catch (NoCupsRemainingException | StaleCoffeeException e) {
             e.printStackTrace();
         }
 
@@ -87,9 +67,7 @@ public class Main {
         // pour again
         try {
             cm.pourCoffee();
-        } catch (NoCupsRemainingException e) {
-            e.printStackTrace();
-        } catch (StaleCoffeeException e) {
+        } catch (NoCupsRemainingException | StaleCoffeeException e) {
             e.printStackTrace();
         }
     }
