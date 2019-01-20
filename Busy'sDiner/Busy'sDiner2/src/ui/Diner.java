@@ -1,13 +1,15 @@
 package ui;
 
 import model.Chef;
+import model.Dish;
 import model.Server;
 import model.Order;
 
 public class Diner {
 
     public static void main(String[] args) {
-        Server server = new Server();
+        Dish dish = new Dish("Trendy Turkey Club Sandwich");
+        Server server = new Server(dish);
         Chef chef = new Chef();
 
         for (int i=0; i < 2 ; i++) {

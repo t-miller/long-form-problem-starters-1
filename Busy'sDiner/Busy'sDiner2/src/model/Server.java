@@ -11,10 +11,12 @@ public class Server {
     private List<Order> orders;
     private double cash;
     private int currentOrderNumber;
+    private Dish dish;
 
-    public Server() {
+    public Server(Dish dish) {
         this.orders = new ArrayList<>();
         currentOrderNumber = 100;
+        this.dish = dish;
     }
 
 
@@ -63,5 +65,19 @@ public class Server {
         System.out.print(PREFIX + "Delivered food: ");
         order.print();
     }
-
+    private static Dish generateTurkeyClubSandwich() {
+        List<String> ingredients = new ArrayList<>();
+        ingredients.add("avocado");
+        ingredients.add("sriracha");
+        ingredients.add("cheddar cheese");
+        ingredients.add("bread");
+        ingredients.add("lettuce");
+        ingredients.add("tomato");
+        ingredients.add("turkey");
+        ingredients.add("bacon");
+        return new Dish("Turkey club sandwich",
+                "\"Our trendy sandwich has avocado, sriracha sauce, cheese, veggies, turkey and bacon.\"",
+                ingredients,
+                "\t1. Pour sriracha\n\t2. Spread avocado\n\t3. Stack meat\n\t4. Place veggies");
+    }
 }
