@@ -2,13 +2,13 @@ package ui;
 
 import model.Human;
 import model.PetStore;
-import model.pets.Bunny;
-import model.pets.Cat;
-import model.pets.Dog;
-import model.pets.Parrot;
-import model.pets.Pet;
+import model.pets.*;
+
+import java.util.ArrayList;
 
 public class PetPairs {
+    private ArrayList<Human> people = new ArrayList<>();
+    private ArrayList<Pet> animals = new ArrayList<>();
 
     public PetPairs() {
         Cat cat = new Cat("calico", false, true, 55.00);
