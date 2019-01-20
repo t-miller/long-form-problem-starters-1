@@ -2,6 +2,8 @@ package model.pets;
 
 import model.Human;
 
+import java.util.Objects;
+
 public class Pet {
     protected boolean friendly;
     protected boolean needsAttention;
@@ -15,6 +17,20 @@ public class Pet {
         this.friendly = friendly;
         this.needsAttention = needsAttention;
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pet)) return false;
+        Pet pet = (Pet) o;
+        return species.equals(pet.species) &&
+                color.equals(pet.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(species, color);
     }
 
     public Pet(String species, String color, double price){
