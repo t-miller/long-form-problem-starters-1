@@ -29,6 +29,7 @@ public class Chef {
     //EFFECTS: prints out the ingredients being prepared
     private void prepareIngredients() {
         System.out.println(PREFIX + "Slicing tomatoes... Shredding lettuce...");
+        System.out.println(PREFIX + "Mashing avocado! Yum!");
     }
 
     //EFFECTS: prints out the recipe being followed
