@@ -5,11 +5,13 @@ import model.Human;
 import java.util.Objects;
 
 public class Pet {
-    protected boolean friendly;
-    protected boolean needsAttention;
-    protected String species;
-    protected String color;
-    protected double price;
+    private boolean friendly;
+    private boolean needsAttention;
+    private String species;
+    private String color;
+    private double price;
+    private Human human;
+
 
     public Pet(String species, String color, boolean friendly, boolean needsAttention, double price){
         this.species = species;
@@ -17,6 +19,7 @@ public class Pet {
         this.friendly = friendly;
         this.needsAttention = needsAttention;
         this.price = price;
+        this.human = null;
     }
 
     @Override
@@ -57,7 +60,7 @@ public class Pet {
     }
 
     public Human getHuman() {
-        return null;
+        return human;
     }
 
     //REQUIRES: human != null
@@ -68,6 +71,7 @@ public class Pet {
 
         if (!human.hasPet(this)){
             human.adoptPet(this);
+            this.human = human;
             System.out.println("Success! Adopted " + human);
         }
     }
@@ -79,7 +83,7 @@ public class Pet {
                 ", friendly=" + friendly +
                 ", color='" + color + '\'' +
                 ", price='" + price + '\'' +
-                ", human= " + //TODO 5
+                ", human= " + human + '\'' +
                 '}';
     }
 }
