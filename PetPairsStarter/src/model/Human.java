@@ -2,14 +2,18 @@ package model;
 
 import model.pets.Pet;
 
+import java.util.HashSet;
+
 
 public class Human {
     private String name;
     private double spendibees;
+    private HashSet<Pet> pets;
 
     public Human(String name) {
         this.name = name;
         this.spendibees = 0;
+        this.pets = new HashSet<>();
     }
 
     //getters
