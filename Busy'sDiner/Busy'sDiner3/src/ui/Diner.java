@@ -11,19 +11,19 @@ public class Diner {
         Dish dish = generateTurkeyClubSandwich();
         Server server = new Server(dish);
         Chef chef = new Chef();
-        Server host = new Host(dish);
+        Host host = new Host(dish);
 
         //Table 1
         System.out.println("Table " + 1 + ":\n");
 
-        server.greet();
-        server.describeDish();
+        host.greet();
+        host.describeDish();
         Order o = server.takeOrder();
 
         System.out.println();
         chef.makeDish(o);
 
-        doOrderRoutine(server, o);
+        doServerOrderRoutine(server, o);
         System.out.println();
 
 
@@ -33,29 +33,26 @@ public class Diner {
         host.greet();
         host.describeDish();
         System.out.println();
-        host.takeOrder();
-
-        System.out.println("Oops! Let's let the server handle that...");
-
         Order o2 = server.takeOrder();
         System.out.println();
         chef.makeDish(o2);
 
-        doOrderRoutine(host, o2);
-        System.out.println("Whoops!");
-        server.takePayment(o2);
-
+        doServerOrderRoutine(server, o2);
 
         System.out.println();
         chef.doDishes();
     }
 
-    private static void doOrderRoutine(Server s, Order o) {
+    private static void doServerOrderRoutine(Server s, Order o) {
         System.out.println();
-        if (o.isReadyToBeServed())
-            s.deliverFood(o);
+        doFOHOrderRoutine(s, o);
         if(o.isReadyToBePaid())
             s.takePayment(o);
+    }
+
+    private static void doFOHOrderRoutine(FOHEmployee e, Order o) {
+        if (o.isReadyToBeServed())
+            e.deliverFood(o);
     }
 
     private static Dish generateTurkeyClubSandwich() {
