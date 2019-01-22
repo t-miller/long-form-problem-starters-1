@@ -44,7 +44,7 @@ public class BingoUI {
 
             //TODO: remove this loop
             for (PlayerCard pc : game.getCards()) {
-                pc.checkCallMatch(game.getCurrentCall());
+                pc.update(game.getCurrentCall());
             }
             //end todo
 
@@ -56,9 +56,6 @@ public class BingoUI {
             TimeUnit.MILLISECONDS.sleep(100);
             printPlayerCard(playerCard);
             TimeUnit.MILLISECONDS.sleep(500);
-
-            //TODO: remove this call
-            game.refreshGameOver();
         }
         if (playerCard.hasBingo()){
             System.out.println("\nCongratulations! You win!");
