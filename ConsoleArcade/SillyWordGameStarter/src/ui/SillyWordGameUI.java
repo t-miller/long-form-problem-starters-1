@@ -25,9 +25,8 @@ public class SillyWordGameUI {
     //MODIFIES: this
     //EFFECTS: fills each needed word entry with user input
     private void userInteraction(){
-        //TODO: refactor this loop to use the iterator pattern you just implemented
-        while(wordGame.needMoreWords()){
-            Phrase p = wordGame.getNextPhraseNeedingWord();
+        while(wordGame.iterator().hasNext()){
+            Phrase p = wordGame.iterator().next();
 
             WordEntry w = p.getNeededWordEntry();
             printWordInputDescription(w);
